@@ -33,5 +33,5 @@ public static final double MAX_ARM_SPEED_DOWN = 0.40;
 
 public static final double DANCE_MAX_LEFT_ARM_SPEED = 0.60;
 public static final double DANCE_MAX_RIGHT_ARM_SPEED = 0.40;
-public static final long ARM_MOVE_TIME_MS = 1000; //in milliseconds
+public static final long ARM_MOVE_TIME_MS = 400; //in milliseconds
 }

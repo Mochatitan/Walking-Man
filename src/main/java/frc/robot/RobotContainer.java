@@ -44,7 +44,7 @@ private final XboxController driverController = new XboxController(DRIVER_CONTRO
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     tankSubsystem.setDefaultCommand(
-      new RunCommand(() -> tankSubsystem.arcadeDrive(getJoystickY(), -getJoystickX(), getRightTriggerValue()), tankSubsystem)
+      new RunCommand(() -> tankSubsystem.arcadeDrive(getJoystickY(), -getJoystickX(), getLeftStickPush()), tankSubsystem)
     );
     // Configure the trigger bindings
     configureBindings();
@@ -107,6 +107,9 @@ private final XboxController driverController = new XboxController(DRIVER_CONTRO
     }
   }
 
+  private boolean getLeftStickPush(){
+    return driverController.getLeftStickButton();
+  }
   public double getJoystickX() {
     if ( driverController != null ) {
       return deadZoneMod(driverController.getRightX());
@@ -127,7 +130,7 @@ private final XboxController driverController = new XboxController(DRIVER_CONTRO
   }
   public boolean getLeftTriggerValue(){
     if ( driverController != null ) {
-      if(driverController.getRightTriggerAxis() >= 0.5){
+      if(driverController.getLeftTriggerAxis() >= 0.5){
         return true;
       }
       return false;
